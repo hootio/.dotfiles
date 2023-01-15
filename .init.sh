@@ -3,7 +3,7 @@
 # Sets up .dotfiles on new machine
 #
 # Usage:
-#   curl https://raw.githubusercontent.com/hootio/.dotfiles/main/init.sh | bash
+#   curl https://raw.githubusercontent.com/hootio/.dotfiles/main/.init.sh | bash
 
 mkdir -p $HOME/github
 git clone --bare git@github.com:hootio/.dotfiles.git $HOME/github/.dotfiles
