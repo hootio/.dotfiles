@@ -11,4 +11,4 @@ config="git --git-dir=$HOME/github/.dotfiles/ --work-tree=$HOME"
 $config config --local status.showUntrackedFiles no
 $config push -u origin main
 $config checkout
-zsh
+source $HOME/.zshrc
