@@ -12,3 +12,4 @@ $config config --local status.showUntrackedFiles no
 $config push -u origin main
 $config checkout
 exec zsh
+source $HOME/.zshrc
