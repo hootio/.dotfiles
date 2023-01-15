@@ -21,11 +21,11 @@ alias grep=rg
 alias config="git --git-dir=$HOME/github/.dotfiles/ --work-tree=$HOME"
 
 # go(lang)
-export GOPATH=$HOME/go
+export GOPATH=~/go
 export GOBIN=$GOPATH/bin
 export GOROOT=/usr/local/opt/go/libexec
 export PATH=$PATH:$GOBIN:${GOROOT}/bin
 
 # prompt
-# eval "$(starship init zsh)"
-# export STARSHIP_CONFIG=~/.starship.toml
+eval "$(starship init zsh)"
+export STARSHIP_CONFIG=~/.starship.toml
