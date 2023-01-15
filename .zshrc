@@ -18,7 +18,7 @@ alias l="ls -al --color"
 alias ll=l
 alias cat=bat
 alias grep=rg
-alias config="$(which git) --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
+alias config="$(which git) --git-dir=$HOME/github/.dotfiles/ --work-tree=$HOME"
 
 # go(lang)
 export GOPATH=$HOME/go
