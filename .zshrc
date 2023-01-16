@@ -1,17 +1,30 @@
-# zsh configs
-
-## up/down arrow search given string
-autoload -U up-line-or-beginning-search
-autoload -U down-line-or-beginning-search
-zle -N up-line-or-beginning-search
-zle -N down-line-or-beginning-search
-bindkey "^[[A" up-line-or-beginning-search
-bindkey "^[[B" down-line-or-beginning-search
-
 # plugins
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+[ -f $HOME/.fzf.zsh ] && source $HOME/.fzf.zsh
 source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source $(brew --prefix)/share/zsh-history-substring-search/zsh-history-substring-search.zsh
+
+# configs
+HISTSIZE=10000
+SAVEHIST=10000
+HISTFILE=$HOME/.zsh_history
+setopt EXTENDED_HISTORY
+setopt HIST_IGNORE_ALL_DUPS
+setopt INC_APPEND_HISTORY
+
+# turn on default zsh completions
+autoload -Uz compinit && compinit
+# use case-insensitive if case-sensitive result not found. ex: ls desk<tab>
+zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}'
+# immediately launches select menu without asking for confirmation. ex: rsync -<tab>
+zstyle ':completion:*' menu yes select
+# TODO: When doing a command such as `git add <tab>` no completion is done.
+#       Make it go through directory files similar to `ls <tab>`
+
+ZSH_AUTOSUGGEST_STRATEGY=(history completion)
+
+bindkey '^[[A' history-substring-search-up
+bindkey '^[[B' history-substring-search-down
 
 # aliases
 alias l="ls -al --color"
@@ -21,11 +34,11 @@ alias grep=rg
 alias config="git --git-dir=$HOME/github/.dotfiles/ --work-tree=$HOME"
 
 # go(lang)
-export GOPATH=~/go
+export GOPATH=$HOME/go
 export GOBIN=$GOPATH/bin
 export GOROOT=/usr/local/opt/go/libexec
 export PATH=$PATH:$GOBIN:${GOROOT}/bin
 
 # prompt
 eval "$(starship init zsh)"
-export STARSHIP_CONFIG=~/.starship.toml
+export STARSHIP_CONFIG=$HOME/.starship.toml
