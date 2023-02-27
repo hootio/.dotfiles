@@ -19,8 +19,8 @@ autoload -Uz compinit && compinit
 zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}'
 # immediately launches select menu without asking for confirmation. ex: rsync -<tab>
 zstyle ':completion:*' menu yes select
-# TODO: When doing a command such as `git add <tab>` no completion is done.
-#       Make it go through directory files similar to `ls <tab>`
+# TODO: When doing using the alias command `config add <tab>` no completion is done.
+#       Make it go through directory files similar to `git add <tab>`
 
 ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 
