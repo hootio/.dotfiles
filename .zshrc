@@ -39,9 +39,10 @@ alias ll=l
 alias cat=bat
 alias grep=rg
 alias config="git --git-dir=$HOME/github/.dotfiles/ --work-tree=$HOME"
-alias gl="git log"
-alias gs="git status"
-alias gd="git diff"
 alias ga="git add"
+alias gb="git branch"
 alias gc="git commit"
+alias gd="git diff"
+alias gl="git log"
 alias gp="git push"
+alias gs="git status"
