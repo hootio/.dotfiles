@@ -29,12 +29,6 @@ style = 'bold bright-cyan'
 symbol = '.'
 style = 'dimmed black'
 
-[cmd_duration]
-format = '[$duration]($style)'
-min_time = 0
-show_milliseconds = true
-style = 'bright-yellow'
-
 [time]
 disabled = false
 format = ' [$time]($style) '
@@ -46,3 +40,9 @@ disabled = false
 format = '[\[$status\]]($style)'
 success_symbol = ' '
 style = 'bright-purple'
+
+[cmd_duration]
+format = '[$duration]($style)'
+min_time = 0
+show_milliseconds = true
+style = 'bright-yellow'
