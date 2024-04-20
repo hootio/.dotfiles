@@ -3,23 +3,46 @@ $username\
 $hostname\
 $directory\
 $fill\
-$cmd_duration $time\
+$time\
 $line_break\
+$status\
 $character\
 """
 
+right_format = """$cmd_duration"""
+
+[username]
+show_always = true
+format = '[$user@]($style)'
+style_user = 'italic dimmed bright-green'
+
+[hostname]
+ssh_only = false
+format = '[$hostname:]($style)'
+style = 'italic dimmed bright-green'
+
 [directory]
 truncate_to_repo = false
+style = 'bold bright-cyan'
 
 [fill]
-symbol = " "
+symbol = '.'
+style = 'dimmed black'
 
 [cmd_duration]
-format = "[$duration]($style)"
+format = '[$duration]($style)'
 min_time = 0
 show_milliseconds = true
+style = 'bright-yellow'
 
 [time]
 disabled = false
-format = "[\\[$time\\]]($style)"
-style = "bold white"
+format = ' [$time]($style) '
+time_format = '[%T][%F]'
+style = 'dimmed bright-white'
+
+[status]
+disabled = false
+format = '[\[$status\]]($style)'
+success_symbol = ' '
+style = 'bright-purple'
