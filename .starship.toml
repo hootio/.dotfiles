@@ -13,12 +13,12 @@ right_format = """$cmd_duration"""
 
 [username]
 show_always = true
-format = '[$user@]($style)'
-style_user = 'italic dimmed bright-green'
+format = '[$user]($style)'
+style_user = 'italic strikethrough dimmed bright-green'
 
 [hostname]
 ssh_only = false
-format = '[$hostname:]($style)'
+format = '[@$hostname:]($style)'
 style = 'italic dimmed bright-green'
 
 [directory]
