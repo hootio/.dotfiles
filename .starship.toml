@@ -27,7 +27,7 @@ style = 'bold bright-cyan'
 
 [fill]
 symbol = '.'
-style = 'dimmed black'
+style = 'dimmed bright-white'
 
 [time]
 disabled = false
