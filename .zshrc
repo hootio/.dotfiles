@@ -34,11 +34,14 @@ export STARSHIP_CONFIG=$HOME/.starship.toml
 
 
 # aliases #
+alias config="git --git-dir=$HOME/github/.dotfiles/ --work-tree=$HOME"
 alias l="ls -al --color"
 alias ll=l
+alias v=nvim
+alias vi=nvim
+alias vim=nvim
 alias cat=bat
 alias grep=rg
-alias config="git --git-dir=$HOME/github/.dotfiles/ --work-tree=$HOME"
 alias ga="git add"
 alias gb="git branch"
 alias gc="git commit"
