@@ -1,3 +1,9 @@
-font-size = 14
-font-family = Hack Nerd Font
+# theme
+theme=catppuccin-mocha
 background-opacity = 0.9
+
+# text
+font-size = 14
+font-thicken=true
+font-family = Hack Nerd Font
+bold-is-bright = true
