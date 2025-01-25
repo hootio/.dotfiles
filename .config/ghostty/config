@@ -1,17 +1,20 @@
-# theme
-title = "you got this! 👻      "
-macos-titlebar-proxy-icon = hidden
-window-title-font-family = "Hack Nerd Font"
-theme = catppuccin-mocha
-background-opacity = 0.9
+theme                       = catppuccin-mocha
 
-# text
-font-size = 16
-font-thicken = true
-font-family = "Hack Nerd Font"
-bold-is-bright = true
-mouse-hide-while-typing = true
-window-padding-balance = true
-window-save-state = always
-cursor-click-to-move = true
-cursor-style = block
+# font
+font-size                   = 16
+font-family                 = Hack Nerd Font
+font-thicken                = true
+bold-is-bright              = true
+
+# cursor
+cursor-style                = block
+cursor-click-to-move        = true
+
+# window
+title                       = kh👀b
+background-opacity          = 0.9
+window-save-state           = always
+window-padding-balance      = true
+window-title-font-family    = Hack Nerd Font
+macos-titlebar-proxy-icon   = hidden
+mouse-hide-while-typing     = true
