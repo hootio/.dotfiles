@@ -1,9 +1,17 @@
 # theme
-theme=catppuccin-mocha
+title = "you got this! 👻      "
+macos-titlebar-proxy-icon = hidden
+window-title-font-family = "Hack Nerd Font"
+theme = catppuccin-mocha
 background-opacity = 0.9
 
 # text
-font-size = 14
-font-thicken=true
-font-family = Hack Nerd Font
+font-size = 16
+font-thicken = true
+font-family = "Hack Nerd Font"
 bold-is-bright = true
+mouse-hide-while-typing = true
+window-padding-balance = true
+window-save-state = always
+cursor-click-to-move = true
+cursor-style = block
