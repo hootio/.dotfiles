@@ -1,5 +1,7 @@
 theme                       = catppuccin-mocha
 
+command                     = /opt/homebrew/bin/tmux
+
 # font
 font-size                   = 16
 font-family                 = Hack Nerd Font
