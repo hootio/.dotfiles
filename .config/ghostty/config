@@ -11,6 +11,7 @@ bold-is-bright              = true
 # cursor
 cursor-style                = block
 cursor-click-to-move        = true
+shell-integration-features  = no-cursor
 
 # window
 title                       = kh👀b
