@@ -36,7 +36,7 @@
       "KC_BSLS",
       "KC_NO",
       "C(G(KC_Q))",
-      "KC_CAPS",
+      "MT(MOD_LCTL,KC_ESC)",
       "KC_A",
       "KC_S",
       "KC_D",
