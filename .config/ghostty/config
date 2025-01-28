@@ -14,7 +14,8 @@ cursor-click-to-move        = true
 shell-integration-features  = no-cursor
 
 # window
-title                       = kh👀b
+title                       = <r3@t3
+# title                       = kh👀b
 background-opacity          = 0.9
 window-save-state           = always
 window-padding-balance      = true
