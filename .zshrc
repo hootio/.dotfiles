@@ -40,7 +40,6 @@ alias ll=l
 alias v=nvim
 alias vi=nvim
 alias vim=nvim
-alias cat=bat
 alias grep=rg
 alias ga="git add"
 alias gb="git branch"
