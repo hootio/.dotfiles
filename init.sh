@@ -7,11 +7,11 @@
 
 # set up local .dotfiles repo
 mkdir -p $HOME/github
-git clone --bare git@github.com:hootio/.dotfiles.git $HOME/github/.dotfiles\
-curl -fsSL https://raw.githubusercontent.com/gpakosz/.tmux/master/.tmux.conf > $HOME/github/.dotfiles/.config/tmux/tmux.conf
+git clone --bare git@github.com:hootio/.dotfiles.git $HOME/github/.dotfiles
 config="git --git-dir=$HOME/github/.dotfiles/ --work-tree=$HOME"
 $config config --local status.showUntrackedFiles no
 $config checkout
+curl -fsSL https://raw.githubusercontent.com/gpakosz/.tmux/master/.tmux.conf > $HOME/.config/tmux/tmux.conf
 
 # brew
 ## install brew
@@ -19,6 +19,8 @@ $config checkout
 ## install brew packages
 brew bundle --file $HOME/Brewfile --no-lock
 brew bundle check
+brew update
+brew upgrade
 
 # reload zsh
 exec zsh
