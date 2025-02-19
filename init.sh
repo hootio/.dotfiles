@@ -6,8 +6,8 @@
 #   bash <(curl https://raw.githubusercontent.com/hootio/.dotfiles/main/init.sh)
 
 # set up local .dotfiles repo
-mkdir -p $HOME/github
 REPO_DIR="$HOME/github/.dotfiles"
+mkdir -p $REPO_DIR
 config="git --git-dir=$REPO_DIR --work-tree=$HOME"
 if [ ! -d "$REPO_DIR" ]; then
     echo "Directory does not exist. Cloning repository..."
@@ -18,6 +18,8 @@ else
     echo "Directory exists. Pulling latest changes..."
     $config pull || { echo "Failed to pull latest changes."; exit 1; }
 fi
+
+mkdir -p $HOME/.config/tmux
 curl -fsSL https://raw.githubusercontent.com/gpakosz/.tmux/master/.tmux.conf > $HOME/.config/tmux/tmux.conf
 
 # brew
