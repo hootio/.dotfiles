@@ -1,4 +1,5 @@
 #!/bin/bash
+set -euo pipefail
 #
 # Sets up .dotfiles on new machine
 #
