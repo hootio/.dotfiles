@@ -39,6 +39,7 @@ curl -fsSL https://raw.githubusercontent.com/gpakosz/.tmux/master/.tmux.conf > $
 # brew
 ## install brew
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+eval "$(/opt/homebrew/bin/brew shellenv)"
 ## install brew packages
 brew bundle --file $HOME/Brewfile --no-lock
 brew bundle check
