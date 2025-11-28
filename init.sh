@@ -6,11 +6,20 @@ set -euo pipefail
 # Usage:
 #   bash <(curl https://raw.githubusercontent.com/hootio/.dotfiles/main/init.sh)
 
+# ensure github ssh key exists
+SSH_KEY_PATH="$HOME/.ssh/github_ed25519"
+if [ -f $SSH_KEY_PATH ]; then
+  chmod 600 $SSH_KEY_PATH
+  ssh-add $SSH_KEY_PATH
+else
+  echo "$SSH_KEY_PATH not found. Please add your Github SSH key."; exit 1;
+fi
+
 # set up local .dotfiles repo
 mkdir -p $HOME/github
 REPO_DIR="$HOME/github/.dotfiles"
 config="git --git-dir=$REPO_DIR --work-tree=$HOME"
-if [ ! -d "$REPO_DIR" ]; then
+if [ ! -d $REPO_DIR ]; then
     echo "Directory does not exist. Cloning repository..."
     git clone --bare git@github.com:hootio/.dotfiles.git $REPO_DIR
     $config config --local status.showUntrackedFiles no
