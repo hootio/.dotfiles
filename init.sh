@@ -7,8 +7,10 @@ set -euo pipefail
 #   bash <(curl https://raw.githubusercontent.com/hootio/.dotfiles/main/init.sh)
 
 REPO_DIR="$HOME/github/.dotfiles"
+config="git --git-dir=$REPO_DIR --work-tree=$HOME"
 cleanup() {
   echo "An error occurred. Cleaning up..."
+  $config ls-tree --name-only -r HEAD | xargs -0 rm -f "$HOME/{}"
   rm -rf $REPO_DIR
 }
 trap cleanup ERR
@@ -24,7 +26,6 @@ fi
 
 # set up local .dotfiles repo
 mkdir -p $HOME/github
-config="git --git-dir=$REPO_DIR --work-tree=$HOME"
 if [ ! -d $REPO_DIR ]; then
     echo "Directory does not exist. Cloning repository..."
     git clone --bare git@github.com:hootio/.dotfiles.git $REPO_DIR
