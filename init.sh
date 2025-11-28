@@ -6,6 +6,13 @@ set -euo pipefail
 # Usage:
 #   bash <(curl https://raw.githubusercontent.com/hootio/.dotfiles/main/init.sh)
 
+REPO_DIR="$HOME/github/.dotfiles"
+cleanup() {
+  echo "An error occurred. Cleaning up..."
+  rm -rf $REPO_DIR
+}
+trap cleanup ERR
+
 # ensure github ssh key exists
 SSH_KEY_PATH="$HOME/.ssh/github_ed25519"
 if [ -f $SSH_KEY_PATH ]; then
@@ -17,7 +24,6 @@ fi
 
 # set up local .dotfiles repo
 mkdir -p $HOME/github
-REPO_DIR="$HOME/github/.dotfiles"
 config="git --git-dir=$REPO_DIR --work-tree=$HOME"
 if [ ! -d $REPO_DIR ]; then
     echo "Directory does not exist. Cloning repository..."
