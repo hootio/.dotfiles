@@ -48,5 +48,9 @@ brew bundle check
 brew update
 brew upgrade
 
+# rust
+## install rustc and cargo
+rustup-init -y
+
 # reload zsh as login shell to run .zprofile
 exec zsh -l
