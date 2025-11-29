@@ -7,6 +7,24 @@
 [http "https://mononoke-git-lfs.c2p.facebook.net"]
   sslCert = /var/facebook/credentials/hooti/x509/hooti.pem
   sslKey = /var/facebook/credentials/hooti/x509/hooti.pem
+[http "https://git.internal.tfbnw.net/"]
+  sslCert = /var/facebook/credentials/hooti/x509/hooti.pem
+[http "https://manifold.c2p.facebook.net/"]
+  sslCert = /var/facebook/credentials/hooti/x509/hooti.pem
+[http "https://git.internal.tfbnw.net"]
+  sslCert = /var/facebook/credentials/hooti/x509/hooti.pem
+  sslKey = /var/facebook/credentials/hooti/x509/hooti.pem
+[http "https://manifold.c2p.facebook.net"]
+  sslCert = /var/facebook/credentials/hooti/x509/hooti.pem
+[http "https://mononoke-git-lfs.internal.tfbnw.net"]
+  sslCert = /var/facebook/credentials/hooti/x509/hooti.pem
+  sslKey = /var/facebook/credentials/hooti/x509/hooti.pem
+[http "https://git.c2p.facebook.net"]
+  sslCert = /var/facebook/credentials/hooti/x509/hooti.pem
+  sslKey = /var/facebook/credentials/hooti/x509/hooti.pem
+[http "https://mononoke-git-lfs.c2p.facebook.net"]
+  sslCert = /var/facebook/credentials/hooti/x509/hooti.pem
+  sslKey = /var/facebook/credentials/hooti/x509/hooti.pem
 [push]
   autoSetupRemote = true
 
