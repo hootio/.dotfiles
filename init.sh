@@ -10,9 +10,8 @@ REPO_DIR="$HOME/github/.dotfiles"
 config="git --git-dir=$REPO_DIR --work-tree=$HOME"
 cleanup() {
   echo "An error occurred. Cleaning up..."
-  $config ls-tree --name-only -r HEAD
   $config ls-tree -z --name-only -r HEAD | xargs -0 -I{} sh -c 'echo "Deleting $HOME/{}"; rm -f "$HOME/{}"'
-  $config ls-tree --name-only -r HEAD | xargs -0 rm -f "$HOME/{}"
+  echo "Deleting $REPO_DIR"
   rm -rf $REPO_DIR
 }
 trap cleanup ERR
