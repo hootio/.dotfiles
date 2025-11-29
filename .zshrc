@@ -26,6 +26,7 @@ ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
+bindkey ';9;13~' accept-line # ghostty override for cmd+enter to behave like enter
 
 
 # prompt #
