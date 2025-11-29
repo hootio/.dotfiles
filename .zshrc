@@ -26,7 +26,11 @@ ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
-bindkey ';9;13~' accept-line # ghostty override for cmd+enter to behave like enter
+bindkey '^[[1;3D' backward-word
+bindkey '^[[1;3C' forward-word
+bindkey '^[[1;9D' beginning-of-line
+bindkey '^[[1;9C' end-of-line
+bindkey '^[[27;9;13~' accept-line # ghostty override for cmd+enter to behave like enter
 
 
 # prompt #
