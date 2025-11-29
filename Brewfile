@@ -1,6 +1,3 @@
-tap "homebrew/bundle"
-tap "homebrew/cask-fonts"
-tap "homebrew/services"
 brew "asciiquarium"
 brew "bat"
 brew "btop"
