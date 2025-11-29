@@ -14,7 +14,7 @@ right_format = """$cmd_duration"""
 [username]
 show_always = true
 format = '[$user]($style)'
-style_user = 'italic strikethrough dimmed bright-green'
+style_user = 'italic strikethrough bright-green'
 
 [hostname]
 ssh_only = false
