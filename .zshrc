@@ -48,9 +48,3 @@ alias gd="git diff"
 alias gl="git log"
 alias gp="git push"
 alias gs="git status"
-
-
-# attach to tmux session #
-if [[ -z "$TMUX" ]]; then
-    tmux a || tmux
-fi
