@@ -68,7 +68,7 @@ eval "$($BREW_PREFIX/bin/brew shellenv)"
 if [ "$PLATFORM" = "mac" ]; then
   # install brew packages
   brew bundle --file $HOME/Brewfile.mac
-  brew bundle check
+  brew bundle check --file $HOME/Brewfile.mac
   brew update
   brew upgrade
   
@@ -78,7 +78,7 @@ if [ "$PLATFORM" = "mac" ]; then
 elif [ "$PLATFORM" = "linux" ]; then
   # install brew packages
   brew bundle --file $HOME/Brewfile.linux
-  brew bundle check
+  brew bundle check --file $HOME/Brewfile.linux
   brew update
   brew upgrade
 
