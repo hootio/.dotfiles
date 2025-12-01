@@ -1,5 +1,5 @@
 # plugins #
-[ -f $HOME/.fzf.zsh ] && source $HOME/.fzf.zsh
+source <(fzf --zsh)
 source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source $(brew --prefix)/share/zsh-history-substring-search/zsh-history-substring-search.zsh
