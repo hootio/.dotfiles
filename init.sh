@@ -54,16 +54,18 @@ else
   $config pull || { echo "Failed to pull latest changes."; exit 1; }
 fi
 
+# set up .gitconfig
+cat .gitconfig.template >> $HOME/.gitconfig
+
 # install tmux config
 curl -fsSL https://raw.githubusercontent.com/gpakosz/.tmux/master/.tmux.conf > $HOME/.config/tmux/tmux.conf
 
 # install brew
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 BREW_PREFIX=$(brew --prefix)
+eval "$($BREW_PREFIX/bin/brew shellenv)"
 
 if [ "$PLATFORM" = "mac" ]; then
-  eval "$($BREW_PREFIX/bin/brew shellenv)"
-
   # install brew packages
   brew bundle --file $HOME/Brewfile.mac
   brew bundle check
@@ -74,8 +76,6 @@ if [ "$PLATFORM" = "mac" ]; then
   rustup-init -y
   
 elif [ "$PLATFORM" = "linux" ]; then
-  eval "$($BREW_PREFIX/bin/brew shellenv)"
-  
   # install brew packages
   brew bundle --file $HOME/Brewfile.linux
   brew bundle check
