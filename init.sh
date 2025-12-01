@@ -64,25 +64,22 @@ curl -fsSL https://raw.githubusercontent.com/gpakosz/.tmux/master/.tmux.conf > $
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 BREW_PREFIX=$(brew --prefix)
 eval "$($BREW_PREFIX/bin/brew shellenv)"
+if [ "$PLATFORM" = "mac" ]; then
+BREWFILE=$HOME/Brewfile.mac
+elif [ "$PLATFORM" = "linux" ]; then
+BREWFILE=$HOME/Brewfile.linux
+fi
+# install brew packages
+brew bundle --file $BREWFILE
+brew bundle check --file $BREWFILE
+brew update
+brew upgrade
 
 if [ "$PLATFORM" = "mac" ]; then
-  # install brew packages
-  brew bundle --file $HOME/Brewfile.mac
-  brew bundle check --file $HOME/Brewfile.mac
-  brew update
-  brew upgrade
-  
   # install rustc and cargo
   rustup-init -y
-  
 elif [ "$PLATFORM" = "linux" ]; then
-  # install brew packages
-  brew bundle --file $HOME/Brewfile.linux
-  brew bundle check --file $HOME/Brewfile.linux
-  brew update
-  brew upgrade
-
-  # sync everything
+  # sync everything across servers
   ## .dotfiles repo
   dotsync2 paths add "$HOME/github/.dotfiles"
   TRACKED_FILES=$($config ls-tree --full-tree -r --name-only HEAD)
