@@ -1,0 +1,8 @@
+[includeIf "gitdir:/Users/hooti/github/"]
+  [user]
+    name = Hootan Shadmehr
+    email = hootan@umich.edu
+  [init]
+    defaultBranch = main
+  [push]
+    autoSetupRemote = true
