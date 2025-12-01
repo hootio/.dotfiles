@@ -19,6 +19,7 @@ fi
 echo "Setting up dotfiles for platform: $PLATFORM"
 
 # consts
+BREW_LINUX_PATH="$HOME/.brew"
 SSH_KEY_PATH="$HOME/.ssh/github_ed25519"
 REPO_DIR="$HOME/github/.dotfiles"
 config="git --git-dir=$REPO_DIR --work-tree=$HOME"
@@ -27,6 +28,8 @@ cleanup() {
   echo "An error occurred. Cleaning up..."
   echo "Deleting $HOME/.gitconfig"
   rm -f .gitconfig
+  echo "Deleting $BREW_LINUX_PATH"
+  rm -rf $BREW_LINUX_PATH
   $config ls-tree -z --name-only -r HEAD | xargs -0 -I{} sh -c 'echo "Deleting $HOME/{}"; rm -f "$HOME/{}"'
   echo "Deleting $REPO_DIR"
   rm -rf $REPO_DIR
@@ -67,7 +70,7 @@ if [ "$PLATFORM" = "mac" ]; then
   BREW_PREFIX=$(brew --prefix)
 elif [ "$PLATFORM" = "linux" ]; then
   BREWFILE=$HOME/Brewfile.linux
-  BREW_PREFIX="$HOME/.brew"
+  BREW_PREFIX="$BREW_LINUX_PATH"
   mkdir -p "$BREW_PREFIX"
   curl -L https://github.com/Homebrew/brew/tarball/master | tar xz --strip 1 -C "$BREW_PREFIX"
 fi
