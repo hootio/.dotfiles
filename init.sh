@@ -5,6 +5,9 @@ set -euo pipefail
 #
 # Usage:
 #   bash <(curl https://raw.githubusercontent.com/hootio/.dotfiles/main/init.sh)
+# Clean up mode:
+#   ./init.sh cleanup
+#
 
 OS_TYPE=$(uname -s)
 if [[ "$OS_TYPE" == "Darwin" ]]; then
@@ -15,8 +18,6 @@ else
   echo "Error: Unsupported OS type '$OS_TYPE'. Must be Darwin or Linux"
   exit 1
 fi
-
-echo "Setting up dotfiles for platform: $PLATFORM"
 
 # consts
 BREW_LINUX_PATH="$HOME/.brew"
@@ -33,8 +34,16 @@ cleanup() {
   $config ls-tree -z --name-only -r HEAD | xargs -0 -I{} sh -c 'echo "Deleting $HOME/{}"; rm -f "$HOME/{}"'
   echo "Deleting $REPO_DIR"
   rm -rf $REPO_DIR
+  exit 0
 }
-trap cleanup ERR
+
+# run cleanup mode
+if [[ "${1:-}" == "cleanup" ]]; then
+  cleanup
+  exit 0
+fi
+
+echo "Setting up dotfiles for platform: $PLATFORM"
 
 # ensure github ssh key exists
 if [ -f $SSH_KEY_PATH ]; then
