@@ -27,6 +27,8 @@ config="git --git-dir=$REPO_DIR --work-tree=$HOME"
 
 cleanup() {
   echo "An error occurred. Cleaning up..."
+  echo "Deleting $HOME/.gitconfig"
+  rm -f .gitconfig
   $config ls-tree -z --name-only -r HEAD | xargs -0 -I{} sh -c 'echo "Deleting $HOME/{}"; rm -f "$HOME/{}"'
   echo "Deleting $REPO_DIR"
   rm -rf $REPO_DIR
