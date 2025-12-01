@@ -63,14 +63,18 @@ cat .gitconfig.template >> $HOME/.gitconfig
 curl -fsSL https://raw.githubusercontent.com/gpakosz/.tmux/master/.tmux.conf > $HOME/.config/tmux/tmux.conf
 
 # install brew
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-BREW_PREFIX=$(brew --prefix)
-eval "$($BREW_PREFIX/bin/brew shellenv)"
 if [ "$PLATFORM" = "mac" ]; then
-BREWFILE=$HOME/Brewfile.mac
+  BREWFILE=$HOME/Brewfile.mac
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+  BREW_PREFIX=$(brew --prefix)
 elif [ "$PLATFORM" = "linux" ]; then
-BREWFILE=$HOME/Brewfile.linux
+  BREWFILE=$HOME/Brewfile.linux
+  BREW_PREFIX="$HOME/.brew"
+  mkdir -p "$BREW_PREFIX"
+  curl -L https://github.com/Homebrew/brew/tarball/master | tar xz --strip 1 -C "$BREW_PREFIX"
 fi
+eval "$($BREW_PREFIX/bin/brew shellenv)"
+
 # install brew packages
 brew bundle --file $BREWFILE
 brew bundle check --file $BREWFILE
