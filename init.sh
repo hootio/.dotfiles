@@ -4,17 +4,15 @@ set -euo pipefail
 # Sets up .dotfiles on new machine
 #
 # Usage:
-#   bash <(curl https://raw.githubusercontent.com/hootio/.dotfiles/main/init.sh) mac
-#   bash <(curl https://raw.githubusercontent.com/hootio/.dotfiles/main/init.sh) linux
+#   bash <(curl https://raw.githubusercontent.com/hootio/.dotfiles/main/init.sh)
 
-if [ $# -eq 0 ]; then
-  echo "Usage: $0 <mac|linux>"
-  exit 1
-fi
-
-PLATFORM="$1"
-if [[ "$PLATFORM" != "mac" && "$PLATFORM" != "linux" ]]; then
-  echo "Error: Invalid platform '$PLATFORM'. Must be 'mac' or 'linux'"
+OS_TYPE=$(uname -s)
+if [[ "$OS_TYPE" == "Darwin" ]]; then
+  PLATFORM="mac"
+elif [[ "$OS_TYPE" == "Linux" ]]; then
+  PLATFORM="linux"
+else
+  echo "Error: Unsupported OS type '$OS_TYPE'. Must be Darwin or Linux"
   exit 1
 fi
 
