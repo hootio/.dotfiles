@@ -1,4 +1,4 @@
-[includeIf "gitdir:/Users/hooti/github/"]
+[includeIf "gitdir:~/github/"]
   [user]
     name = Hootan Shadmehr
     email = hootan@umich.edu
