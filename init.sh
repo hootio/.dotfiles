@@ -77,7 +77,7 @@ fi
 eval "$($BREW_PREFIX/bin/brew shellenv)"
 
 # install brew packages
-brew bundle --file $BREWFILE
+brew bundle --file $BREWFILE --verbose
 brew bundle check --file $BREWFILE
 brew update
 brew upgrade
