@@ -1,8 +1,6 @@
 # rust
-. "$HOME/.cargo/env"
-
-# go(lang)
-export GOPATH=$HOME/go
-export GOBIN=$GOPATH/bin
-export GOROOT=/opt/homebrew/opt/go/libexec
-export PATH=$PATH:$GOBIN:$GOROOT/bin
+if [ -f "$HOME/.cargo/env" ]; then
+  . "$HOME/.cargo/env"
+else
+  export PATH="$HOME/.cargo/bin:$PATH"
+fi
