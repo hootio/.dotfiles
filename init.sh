@@ -48,6 +48,7 @@ echo "Setting up dotfiles for platform: $PLATFORM"
 # ensure github ssh key exists
 if [ -f $SSH_KEY_PATH ]; then
   chmod 600 $SSH_KEY_PATH
+  eval "$(ssh-agent -s)"
   ssh-add $SSH_KEY_PATH
 else
   echo "$SSH_KEY_PATH not found. Please add your Github SSH key."
