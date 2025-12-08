@@ -1,7 +1,0 @@
-brew "fzf"
-brew "neovim"
-brew "starship"
-brew "zig"
-brew "zsh-autosuggestions"
-brew "zsh-history-substring-search"
-brew "zsh-syntax-highlighting"
