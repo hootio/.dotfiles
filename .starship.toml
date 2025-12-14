@@ -3,13 +3,12 @@ $username\
 $hostname\
 $directory\
 $fill\
+$cmd_duration\
 $time\
 $line_break\
 $status\
 $character\
 """
-
-right_format = """$cmd_duration"""
 
 [username]
 show_always = true
@@ -22,6 +21,7 @@ format = '[@$hostname:]($style)'
 style = 'italic dimmed bright-green'
 
 [directory]
+format = '[$path]($style)[$read_only]($read_only_style)'
 truncate_to_repo = false
 style = 'bold bright-cyan'
 
@@ -31,7 +31,7 @@ style = 'dimmed bright-white'
 
 [time]
 disabled = false
-format = ' [$time]($style) '
+format = '[$time]($style) '
 time_format = '[%T][%F]'
 style = 'dimmed bright-white'
 
@@ -46,3 +46,4 @@ format = '[$duration]($style)'
 min_time = 0
 show_milliseconds = true
 style = 'bright-yellow'
+
