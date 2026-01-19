@@ -1,8 +1,9 @@
 # plugins #
 source <(fzf --zsh)
-source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source $(brew --prefix)/share/zsh-history-substring-search/zsh-history-substring-search.zsh
+BREW_PREFIX="$(brew --prefix)"
+source $BREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source $BREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source $BREW_PREFIX/share/zsh-history-substring-search/zsh-history-substring-search.zsh
 
 
 # configs #
@@ -13,8 +14,13 @@ setopt EXTENDED_HISTORY
 setopt HIST_IGNORE_ALL_DUPS
 setopt INC_APPEND_HISTORY
 
-# turn on default zsh completions
-autoload -Uz compinit && compinit
+# turn on default zsh completions (refreshes cache weekly for speed)
+autoload -Uz compinit
+if [[ -f ~/.zcompdump && $(date +'%U') == $(stat -f '%Sm' -t '%U' ~/.zcompdump) ]]; then
+  compinit -C
+else
+  compinit
+fi
 # use case-insensitive if case-sensitive result not found. ex: ls desk<tab>
 zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}'
 # immediately launches select menu without asking for confirmation. ex: rsync -<tab>
