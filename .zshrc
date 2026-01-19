@@ -19,6 +19,8 @@ autoload -Uz compinit && compinit
 zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}'
 # immediately launches select menu without asking for confirmation. ex: rsync -<tab>
 zstyle ':completion:*' menu yes select
+# behave like bash for word style, affecting option+arrow navigation
+autoload -Uz select-word-style && select-word-style bash
 # TODO: When using the alias command `config add <tab>` no completion is done.
 #       Make it go through directory files similar to `git add <tab>`
 
