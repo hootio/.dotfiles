@@ -27,8 +27,6 @@ zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}'
 zstyle ':completion:*' menu yes select
 # behave like bash for word style, affecting option+arrow navigation
 autoload -Uz select-word-style && select-word-style bash
-# TODO: When using the alias command `config add <tab>` no completion is done.
-#       Make it go through directory files similar to `git add <tab>`
 
 ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 
@@ -48,6 +46,7 @@ export STARSHIP_CONFIG=$HOME/.starship.toml
 
 # aliases #
 alias config="git --git-dir=$HOME/github/.dotfiles/ --work-tree=$HOME"
+compdef config=git
 alias l="ls -al --color"
 alias ll=l
 alias v=nvim
