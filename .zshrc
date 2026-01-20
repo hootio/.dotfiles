@@ -16,10 +16,10 @@ setopt INC_APPEND_HISTORY
 
 # turn on default zsh completions (refreshes cache weekly for speed)
 autoload -Uz compinit
-if [[ -f ~/.zcompdump && $(date +'%U') == $(stat -f '%Sm' -t '%U' ~/.zcompdump) ]]; then
-  compinit -C
-else
+if [[ ! -f ~/.zcompdump ]] || [[ -n ~/.zcompdump(#qN.mw+1) ]]; then
   compinit
+else
+  compinit -C
 fi
 # use case-insensitive if case-sensitive result not found. ex: ls desk<tab>
 zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}'
