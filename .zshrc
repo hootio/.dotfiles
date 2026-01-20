@@ -45,8 +45,6 @@ export STARSHIP_CONFIG=$HOME/.starship.toml
 
 
 # aliases #
-alias config="git --git-dir=$HOME/github/.dotfiles/ --work-tree=$HOME"
-compdef config=git
 alias l="ls -al --color"
 alias ll=l
 alias v=nvim
@@ -60,3 +58,12 @@ alias gd="git diff"
 alias gl="git log"
 alias gp="git push"
 alias gs="git status"
+alias config="git --git-dir=$HOME/github/.dotfiles/ --work-tree=$HOME"
+compdef config=git
+devmain() {
+  if [ -z "$1" ]; then
+    echo "Usage: devmain <YUBIKEY_OTP>"
+    return 1
+  fi
+  dev connect -n hooti.sb -y "$1" -- sh -c 'tmux new-session -A -s main'
+}
