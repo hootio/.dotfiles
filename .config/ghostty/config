@@ -1,5 +1,8 @@
 theme                       = Catppuccin Mocha
 
+# keybinds
+keybind                     = cmd+enter=unbind
+
 # font
 font-size                   = 16
 font-family                 = Hack Nerd Font
