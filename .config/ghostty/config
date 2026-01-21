@@ -16,8 +16,6 @@ cursor-click-to-move        = true
 shell-integration-features  = no-cursor
 
 # window
-title                       = <r3@t3
-# title                       = kh👀b
 window-save-state           = always
 window-padding-balance      = true
 window-title-font-family    = Hack Nerd Font
