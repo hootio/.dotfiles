@@ -1,44 +1,114 @@
 # Dotfiles
 
-Personal configuration files for a terminal-centric development workflow.
+> A terminal-centric development environment built for speed, consistency, and longevity.
+
+## Why Terminal-First?
+
+IDEs come and go. Atom, Sublime, VS Code - the landscape shifts every few years, and rebuilding muscle memory is expensive.
+
+Terminal tools stick around. Vim has been here since 1991. Tmux since 2007. By investing in terminal-based tools, this setup prioritizes **longevity over novelty**.
+
+That said, pragmatism wins. Zed lives on the machine as a lightweight escape hatch - useful for quick notes, scratch space, or when a GUI is just easier.
+
+## The Stack
+
+### Ghostty (for now)
+
+The terminal emulator is deliberately treated as disposable. Today it's Ghostty. Tomorrow it might be Warp, WezTerm, or something else.
+
+The real environment lives *inside* tmux - the emulator is just a viewport.
+
+### Tmux
+
+Tmux is the backbone. It provides:
+
+- **Persistence**: SSH drops? The session lives on.
+- **Portability**: Same workflow on a MacBook, Linux workstation, or remote server.
+- **Organization**: Sessions for projects, windows for contexts, panes for tasks.
+
+The `devmain` command connects to remote dev servers via `et` (Eternal Terminal) and attaches to a persistent tmux session. Work survives network hiccups, VPN reconnects, and laptop lid closes.
+
+Plugins: `tmux-resurrect` and `tmux-continuum` handle state persistence across restarts.
+
+### Neovim
+
+Neovim for everything. Currently running LazyVim as a starting point while building fluency. The goal is to eventually understand every line and strip it down to essentials.
+
+### Zsh
+
+Hand-rolled `.zshrc` with only what's needed. No Oh My Zsh, no bloated frameworks. Just:
+
+- Syntax highlighting
+- Autosuggestions
+- History substring search
+- fzf integration
+- Starship prompt
+
+Every line exists for a reason.
 
 ## Philosophy
 
-### Terminal-First
+### Consistency is Velocity
 
-Use a terminal for everything. IDEs come and go - investing in terminal-based tools provides longevity and consistency. Zed is kept as a lightweight backup for quick notes and clipboard space, but the primary workflow lives in the terminal.
+The environment is designed for predictable, shortcut-driven navigation:
 
-### Terminal Emulator Agnostic
+| Layer | Tool | Purpose |
+|-------|------|---------|
+| OS | Raycast | Window tiling, app launching, snippets |
+| Terminal | Tmux | Session/window/pane management |
+| Editor | Neovim | Code editing, file navigation |
 
-Tmux and Neovim are the core tools, not the terminal emulator. Today it's Ghostty, tomorrow it may be WezTerm, iTerm2, or something else entirely. The terminal emulator is just a window - the real environment lives in tmux.
+Same keybindings. Same layouts. Same mental model - whether at home or SSH'd into a remote server. Muscle memory compounds.
 
-### Consistent Environment
+### Keyboard-First, Mouse-Allowed
 
-Muscle memory matters. The environment is designed for predictable, shortcut-driven navigation:
+Optimized for hands on keyboard, but the mouse isn't disabled. Dragging tmux pane borders? Sure. Clicking a link? Go for it.
 
-- **OS level**: Tiling layouts defined in Raycast config
-- **Terminal level**: Tmux sessions, windows, and panes with consistent naming
-- **Editor level**: Neovim with predictable keybindings
+Productivity today matters. As keyboard fluency grows, mouse usage naturally fades.
 
-The goal is to reach any context quickly without conscious thought.
-
-### Remote Work Persistence
-
-Tmux on remote servers preserves work even when connections drop. The `devmain` command connects via `et` (Eternal Terminal) and attaches to a persistent tmux session. Tmux plugins (resurrect, continuum) preserve state across restarts.
-
-### Minimal Plugins, Manual Setup
+### Learn by Owning
 
 Prefer understanding over convenience:
 
-- **Zsh**: Hand-rolled config with only what's needed. No Oh My Zsh bloat.
-- **Tmux**: Using Oh My Tmux while learning, with plans to minimize once comfortable.
-- **Neovim**: Using LazyVim as a starting point while getting familiar with Neovim.
+- **Zsh**: No frameworks. Just raw config.
+- **Tmux**: Using Oh My Tmux as scaffolding while learning. Will minimize once fluent.
+- **Neovim**: LazyVim as a starting point. Gradual customization as understanding deepens.
 
-The goal is to eventually understand and own every line of configuration.
+The goal is to eventually own every line of configuration.
 
-### Keyboard-Optimized, Mouse-Allowed
+## The Bare Repo Trick
 
-Optimized for hands on keyboard, but mouse actions remain enabled to maintain productivity while learning. Example: tmux allows mouse dragging to resize panes. As muscle memory develops, mouse usage naturally decreases.
+These dotfiles use the **bare git repository** pattern - no symlinks, no stow, no complex tooling.
+
+The idea: create a bare git repo and set the work tree to `$HOME`. This lets you version control files exactly where they live, without polluting your home directory with a `.git` folder.
+
+```bash
+# The alias
+alias config="git --git-dir=$HOME/github/.dotfiles/ --work-tree=$HOME"
+
+# Use it like normal git
+config add ~/.zshrc
+config commit -m "Update shell config"
+config push
+```
+
+### Why Bare Repo?
+
+- **No symlinks**: Files live in their real locations. No `~/.zshrc -> ~/.dotfiles/.zshrc` indirection.
+- **No dependencies**: Just git. No stow, no chezmoi, no dotbot.
+- **Selective tracking**: Only track what you want. The rest of `$HOME` is ignored.
+- **Familiar workflow**: It's just git with different flags.
+
+### Setup on a New Machine
+
+```bash
+git clone --bare <repo-url> $HOME/github/.dotfiles
+alias config="git --git-dir=$HOME/github/.dotfiles/ --work-tree=$HOME"
+config checkout
+config config --local status.showUntrackedFiles no
+```
+
+The last line tells git to stop showing the thousands of untracked files in your home directory.
 
 ## Setup
 
@@ -48,30 +118,18 @@ Optimized for hands on keyboard, but mouse actions remain enabled to maintain pr
 ./init.sh
 ```
 
-This script is ephemeral and runs only on the local machine. It bootstraps the initial setup.
+This script is ephemeral. Run it once on a fresh machine to bootstrap Homebrew, clone repos, and set up initial state. Designed to run locally, not on servers.
 
 ### Remote/Dev Servers
 
-Configs are **not** automatically synced to dev servers. Instead:
+Configs are **intentionally not auto-synced** to dev servers. The workflow:
 
-1. Manually copy relevant configs to the dev server
-2. Adjust as needed for the server environment
-3. Use `dotsync2` to sync dotfiles across other internal servers and on-demands
+1. Manually copy the configs that make sense for server environments
+2. Adjust as needed (servers have different needs than laptops)
+3. Use `dotsync2` to propagate across other internal servers and on-demands
 
-This separation keeps work and personal configs distinct and allows for environment-specific adjustments.
-
-## Structure
-
-```
-~/.config/
-  ghostty/config     # Terminal emulator
-  tmux/              # Tmux (via Oh My Tmux)
-  nvim/              # Neovim (via LazyVim)
-
-~/.zshrc             # Shell config
-~/.starship.toml     # Prompt
-```
+This keeps personal and work configs appropriately separated.
 
 ## Theme
 
-Catppuccin Mocha across all tools for visual consistency.
+**Catppuccin Mocha** everywhere - terminal, tmux, Neovim. One palette, zero context-switching friction.
