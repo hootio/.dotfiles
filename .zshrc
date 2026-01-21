@@ -66,5 +66,6 @@ devmain() {
     echo "Usage: devmain <YUBIKEY_OTP>"
     return 1
   fi
-  dev connect -n hooti.sb -y "$1" -- sh -c 'tmux new-session -A -s main'
+  dev connect -n hooti.sb -y "$1" -- sh -c 'tmux new-session -A -s hooti.sb'
 }
+alias sesh="tmux new-session -A -s rakhsh"
