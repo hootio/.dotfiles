@@ -107,23 +107,23 @@ catppuccin_peach="#fab387"
 catppuccin_red="#f38ba8"
 
 # Theme color slots (oh-my-tmux framework)
-tmux_conf_theme_colour_1="$catppuccin_mantle"     # status bar bg
-tmux_conf_theme_colour_2="$catppuccin_surface0"   # borders
+tmux_conf_theme_colour_1="$catppuccin_surface0"   # status bar bg
+tmux_conf_theme_colour_2="$catppuccin_surface0"   # inactive pane border
 tmux_conf_theme_colour_3="$catppuccin_overlay0"   # muted text
-tmux_conf_theme_colour_4="$catppuccin_blue"       # accent/active window
-tmux_conf_theme_colour_5="$catppuccin_yellow"     # highlights/messages
-tmux_conf_theme_colour_6="$catppuccin_crust"      # dark text
+tmux_conf_theme_colour_4="$catppuccin_blue"       # active pane border / accent
+tmux_conf_theme_colour_5="$catppuccin_yellow"     # prefix indicator
+tmux_conf_theme_colour_6="$catppuccin_crust"      # dark text (on bright bg)
 tmux_conf_theme_colour_7="$catppuccin_text"       # main text
-tmux_conf_theme_colour_8="$catppuccin_mantle"     # (unused duplicate)
-tmux_conf_theme_colour_9="$catppuccin_peach"      # session segment
-tmux_conf_theme_colour_10="$catppuccin_mantle"    # status segment bg
-tmux_conf_theme_colour_11="$catppuccin_mantle"    # (unused duplicate)
+tmux_conf_theme_colour_8="$catppuccin_surface0"   # window status bg
+tmux_conf_theme_colour_9="$catppuccin_blue"       # session segment bg
+tmux_conf_theme_colour_10="$catppuccin_surface0"  # status segment bg
+tmux_conf_theme_colour_11="$catppuccin_surface0"  # (unused)
 tmux_conf_theme_colour_12="$catppuccin_text"      # status right text
-tmux_conf_theme_colour_13="$catppuccin_text"      # (unused duplicate)
-tmux_conf_theme_colour_14="$catppuccin_mantle"    # (unused duplicate)
-tmux_conf_theme_colour_15="$catppuccin_mantle"    # status right bg
-tmux_conf_theme_colour_16="$catppuccin_green"     # hostname segment
-tmux_conf_theme_colour_17="$catppuccin_crust"     # text on green
+tmux_conf_theme_colour_13="$catppuccin_text"      # (unused)
+tmux_conf_theme_colour_14="$catppuccin_crust"     # current window text
+tmux_conf_theme_colour_15="$catppuccin_surface0"  # status right bg
+tmux_conf_theme_colour_16="$catppuccin_blue"      # hostname segment bg
+tmux_conf_theme_colour_17="$catppuccin_crust"     # hostname text
 
 # default theme (ansi)
 #tmux_conf_theme_colour_1="colour0"
@@ -189,7 +189,7 @@ tmux_conf_theme_mode_attr="bold"
 
 # status line style
 tmux_conf_theme_status_fg="$catppuccin_text"
-tmux_conf_theme_status_bg="$catppuccin_mantle"
+tmux_conf_theme_status_bg="$catppuccin_surface0"
 tmux_conf_theme_status_attr="none"
 
 # terminal title
@@ -215,9 +215,9 @@ tmux_conf_theme_terminal_title="#S"
 #     - #{username}
 #     - #{username_ssh}
 tmux_conf_theme_window_status_fg="$catppuccin_overlay1"
-tmux_conf_theme_window_status_bg="$catppuccin_mantle"
+tmux_conf_theme_window_status_bg="$catppuccin_surface0"
 tmux_conf_theme_window_status_attr="none"
-tmux_conf_theme_window_status_format="#I #W#{?#{||:#{window_bell_flag},#{window_zoomed_flag}}, ,}#{?window_bell_flag,!,}#{?window_zoomed_flag,Z,}"
+tmux_conf_theme_window_status_format=" #I #W "
 #tmux_conf_theme_window_status_format="#{circled_window_index} #W#{?#{||:#{window_bell_flag},#{window_zoomed_flag}}, ,}#{?window_bell_flag,!,}#{?window_zoomed_flag,Z,}"
 #tmux_conf_theme_window_status_format="#I #W#{?#{||:#{window_bell_flag},#{window_zoomed_flag}}, ,}#{?window_bell_flag,🔔,}#{?window_zoomed_flag,🔍,}"
 
@@ -231,10 +231,10 @@ tmux_conf_theme_window_status_format="#I #W#{?#{||:#{window_bell_flag},#{window_
 #     - #{hostname_full_ssh}
 #     - #{username}
 #     - #{username_ssh}
-tmux_conf_theme_window_status_current_fg="$catppuccin_blue"
-tmux_conf_theme_window_status_current_bg="$catppuccin_surface0"
+tmux_conf_theme_window_status_current_fg="$catppuccin_crust"
+tmux_conf_theme_window_status_current_bg="$catppuccin_text"
 tmux_conf_theme_window_status_current_attr="bold"
-tmux_conf_theme_window_status_current_format="#I #W#{?#{||:#{window_bell_flag},#{window_zoomed_flag}}, ,}#{?window_bell_flag,!,}#{?window_zoomed_flag,Z,}"
+tmux_conf_theme_window_status_current_format=" #I #W "
 #tmux_conf_theme_window_status_current_format="#{circled_window_index} #W#{?#{||:#{window_bell_flag},#{window_zoomed_flag}}, ,}#{?window_bell_flag,!,}#{?window_zoomed_flag,Z,}"
 #tmux_conf_theme_window_status_current_format="#I #W#{?#{||:#{window_bell_flag},#{window_zoomed_flag}}, ,}#{?window_bell_flag,🔔,}#{?window_zoomed_flag,🔍,}"
 
@@ -249,8 +249,8 @@ tmux_conf_theme_window_status_bell_bg="$catppuccin_yellow"
 tmux_conf_theme_window_status_bell_attr="bold"
 
 # window last status style
-tmux_conf_theme_window_status_last_fg="$catppuccin_lavender"
-tmux_conf_theme_window_status_last_bg="$catppuccin_mantle"
+tmux_conf_theme_window_status_last_fg="$catppuccin_blue"
+tmux_conf_theme_window_status_last_bg="$catppuccin_surface0"
 tmux_conf_theme_window_status_last_attr="none"
 
 # status left/right sections separators
@@ -291,17 +291,16 @@ tmux_conf_theme_right_separator_sub="|"
 #     - #{username}
 #     - #{username_ssh}
 tmux_conf_theme_status_left=" ❐ #S "
-#tmux_conf_theme_status_left=" ❐ #S | ↑#{?uptime_y, #{uptime_y}y,}#{?uptime_d, #{uptime_d}d,}#{?uptime_h, #{uptime_h}h,}#{?uptime_m, #{uptime_m}m,} | #{pretty_pane_current_path} "
 tmux_conf_theme_status_right=" #{prefix}#{pairing}#{synchronized}#{?battery_percentage,#{battery_percentage} | ,}↑#{?uptime_y, #{uptime_y}y,}#{?uptime_d, #{uptime_d}d,}#{?uptime_h, #{uptime_h}h,}#{?uptime_m, #{uptime_m}m,} , %a %b %d , %I:%M:%S %p | #{username}#{root} | #(hostname -f | cut -d. -f1,2) "
 
 # status left style
 tmux_conf_theme_status_left_fg="$catppuccin_crust,$catppuccin_text,$catppuccin_text"
-tmux_conf_theme_status_left_bg="$catppuccin_peach,$catppuccin_mantle,$catppuccin_mantle"
+tmux_conf_theme_status_left_bg="$catppuccin_blue,$catppuccin_surface0,$catppuccin_surface0"
 tmux_conf_theme_status_left_attr="bold,none,none"
 
 # status right style
 tmux_conf_theme_status_right_fg="$catppuccin_text,$catppuccin_text,$catppuccin_crust"
-tmux_conf_theme_status_right_bg="$catppuccin_mantle,$catppuccin_mantle,$catppuccin_green"
+tmux_conf_theme_status_right_bg="$catppuccin_surface0,$catppuccin_surface0,$catppuccin_blue"
 tmux_conf_theme_status_right_attr="none,none,bold"
 
 # pairing indicator
@@ -474,9 +473,6 @@ tmux_conf_uninstall_plugins_on_reload=true
 set -g @plugin 'tmux-plugins/tmux-resurrect'
 set -g @plugin 'tmux-plugins/tmux-continuum'
 set -g @continuum-restore 'on'
-set -g @plugin 'catppuccin/tmux'
-set -g @catppuccin_window_text "#W"
-set -g @catppuccin_window_current_text "#W"
 
 # -- custom variables ----------------------------------------------------------
 
