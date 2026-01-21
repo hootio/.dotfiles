@@ -7,6 +7,7 @@ source $BREW_PREFIX/share/zsh-history-substring-search/zsh-history-substring-sea
 
 
 # configs #
+export EDITOR="nvim"
 HISTSIZE=10000
 SAVEHIST=10000
 HISTFILE=$HOME/.zsh_history
