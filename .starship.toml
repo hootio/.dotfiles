@@ -1,6 +1,4 @@
 format = """
-$username\
-$hostname\
 $directory\
 $fill\
 $cmd_duration\
