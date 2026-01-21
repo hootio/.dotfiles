@@ -9,6 +9,8 @@ source $BREW_PREFIX/share/zsh-history-substring-search/zsh-history-substring-sea
 # configs #
 export EDITOR="nvim"
 bindkey -e    # use emacs keybindings (override zsh auto-vi-mode from EDITOR=nvim)
+KEYTIMEOUT=1  # reduce escape sequence timeout (10ms) for responsive arrow keys after Esc
+bindkey '^[' send-break  # make standalone Escape cancel instead of waiting for meta-sequence
 HISTSIZE=10000
 SAVEHIST=10000
 HISTFILE=$HOME/.zsh_history
