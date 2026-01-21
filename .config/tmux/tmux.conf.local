@@ -173,18 +173,18 @@ tmux_conf_theme_pane_indicator="$tmux_conf_theme_colour_4"
 tmux_conf_theme_pane_active_indicator="$tmux_conf_theme_colour_4"
 
 # status line style
-tmux_conf_theme_message_fg="$catppuccin_teal"
-tmux_conf_theme_message_bg="$catppuccin_overlay0"
+tmux_conf_theme_message_fg="$catppuccin_crust"
+tmux_conf_theme_message_bg="$catppuccin_yellow"
 tmux_conf_theme_message_attr="bold"
 
 # status line command style (<prefix> : Escape)
-tmux_conf_theme_message_command_fg="$catppuccin_teal"
-tmux_conf_theme_message_command_bg="$catppuccin_overlay0"
+tmux_conf_theme_message_command_fg="$catppuccin_crust"
+tmux_conf_theme_message_command_bg="$catppuccin_peach"
 tmux_conf_theme_message_command_attr="bold"
 
 # window modes style
-tmux_conf_theme_mode_fg="$catppuccin_text"
-tmux_conf_theme_mode_bg="$catppuccin_surface0"
+tmux_conf_theme_mode_fg="$catppuccin_crust"
+tmux_conf_theme_mode_bg="$catppuccin_green"
 tmux_conf_theme_mode_attr="bold"
 
 # status line style
@@ -232,7 +232,7 @@ tmux_conf_theme_window_status_format=" #I #W "
 #     - #{username}
 #     - #{username_ssh}
 tmux_conf_theme_window_status_current_fg="$catppuccin_crust"
-tmux_conf_theme_window_status_current_bg="$catppuccin_text"
+tmux_conf_theme_window_status_current_bg="$catppuccin_lavender"
 tmux_conf_theme_window_status_current_attr="bold"
 tmux_conf_theme_window_status_current_format=" #I #W "
 #tmux_conf_theme_window_status_current_format="#{circled_window_index} #W#{?#{||:#{window_bell_flag},#{window_zoomed_flag}}, ,}#{?window_bell_flag,!,}#{?window_zoomed_flag,Z,}"
@@ -295,12 +295,12 @@ tmux_conf_theme_status_right=" #{prefix}#{pairing}#{synchronized}#{?battery_perc
 
 # status left style
 tmux_conf_theme_status_left_fg="$catppuccin_crust,$catppuccin_text,$catppuccin_text"
-tmux_conf_theme_status_left_bg="$catppuccin_blue,$catppuccin_surface0,$catppuccin_surface0"
+tmux_conf_theme_status_left_bg="$catppuccin_peach,$catppuccin_surface0,$catppuccin_surface0"
 tmux_conf_theme_status_left_attr="bold,none,none"
 
 # status right style
 tmux_conf_theme_status_right_fg="$catppuccin_text,$catppuccin_text,$catppuccin_crust"
-tmux_conf_theme_status_right_bg="$catppuccin_surface0,$catppuccin_surface0,$catppuccin_blue"
+tmux_conf_theme_status_right_bg="$catppuccin_surface0,$catppuccin_surface0,$catppuccin_teal"
 tmux_conf_theme_status_right_attr="none,none,bold"
 
 # pairing indicator
@@ -311,9 +311,9 @@ tmux_conf_theme_pairing_attr="none"
 
 # prefix indicator
 tmux_conf_theme_prefix="⌨"                  # U+2328
-tmux_conf_theme_prefix_fg="none"
+tmux_conf_theme_prefix_fg="$catppuccin_yellow"
 tmux_conf_theme_prefix_bg="none"
-tmux_conf_theme_prefix_attr="none"
+tmux_conf_theme_prefix_attr="bold"
 
 # mouse indicator
 tmux_conf_theme_mouse="↗"                   # U+2197
@@ -329,9 +329,9 @@ tmux_conf_theme_root_attr="bold,blink"
 
 # synchronized indicator
 tmux_conf_theme_synchronized="⚏"            # U+268F
-tmux_conf_theme_synchronized_fg="none"
+tmux_conf_theme_synchronized_fg="$catppuccin_red"
 tmux_conf_theme_synchronized_bg="none"
-tmux_conf_theme_synchronized_attr="none"
+tmux_conf_theme_synchronized_attr="bold"
 
 # battery bar symbols
 tmux_conf_battery_bar_symbol_full="◼"
@@ -379,7 +379,7 @@ tmux_conf_battery_status_discharging="↓"    # U+2193
 
 # clock style (when you hit <prefix> + t)
 # you may want to use %I:%M %p in place of %R in tmux_conf_theme_status_right
-tmux_conf_theme_clock_colour="$catppuccin_blue"
+tmux_conf_theme_clock_colour="$catppuccin_sapphire"
 tmux_conf_theme_clock_style="12"
 
 
