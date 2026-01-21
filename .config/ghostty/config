@@ -1,7 +1,7 @@
 theme                       = Catppuccin Mocha
 
 # keybinds
-keybind                     = cmd+enter=ignore
+keybind                     = cmd+enter=text:\n
 keybind                     = shift+enter=text:\n
 keybind                     = super+,=text:ghostty +edit-config\n
 macos-option-as-alt         = true
