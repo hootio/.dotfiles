@@ -1,8 +1,10 @@
 theme                       = Catppuccin Mocha
 
 # keybinds
-keybind                     = cmd+enter=unbind
+keybind                     = cmd+enter=ignore
+keybind                     = shift+enter=text:\n
 keybind                     = super+,=text:ghostty +edit-config\n
+macos-option-as-alt         = true
 
 # font
 font-size                   = 16

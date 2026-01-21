@@ -8,6 +8,7 @@ source $BREW_PREFIX/share/zsh-history-substring-search/zsh-history-substring-sea
 
 # configs #
 export EDITOR="nvim"
+bindkey -e    # use emacs keybindings (override zsh auto-vi-mode from EDITOR=nvim)
 HISTSIZE=10000
 SAVEHIST=10000
 HISTFILE=$HOME/.zsh_history
@@ -30,14 +31,6 @@ zstyle ':completion:*' menu yes select
 autoload -Uz select-word-style && select-word-style bash
 
 ZSH_AUTOSUGGEST_STRATEGY=(history completion)
-
-bindkey '^[[A' history-substring-search-up
-bindkey '^[[B' history-substring-search-down
-bindkey '^[[1;3D' backward-word
-bindkey '^[[1;3C' forward-word
-bindkey '^[[1;9D' beginning-of-line
-bindkey '^[[1;9C' end-of-line
-bindkey '^[[27;9;13~' accept-line # ghostty override for cmd+enter to behave like enter
 
 
 # prompt #
