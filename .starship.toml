@@ -25,13 +25,13 @@ style = 'bold bright-cyan'
 
 [fill]
 symbol = '.'
-style = 'dimmed bright-white'
+style = 'dimmed white'
 
 [time]
 disabled = false
 format = '[$time]($style) '
-time_format = '[%T][%F]'
-style = 'dimmed bright-white'
+time_format = '[%T][%b %d]'
+style = 'dimmed white'
 
 [status]
 disabled = false
