@@ -20,6 +20,7 @@ style = 'italic dimmed bright-green'
 
 [directory]
 format = '[$path]($style)[$read_only]($read_only_style)'
+truncation_length = 0
 truncate_to_repo = false
 style = 'bold bright-cyan'
 
