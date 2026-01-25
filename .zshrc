@@ -63,4 +63,11 @@ devmain() {
   fi
   dev connect -n hooti.sb -y "$1" -- sh -c 'tmux new-session -A -s hooti-sb'
 }
+odmain() {
+  if [ -z "$1" ]; then
+    echo "Usage: odmain <YUBIKEY_OTP>"
+    return 1
+  fi
+  dev connect -t www_fbsource_configerator -y "$1" -- sh -c 'SHELL=/bin/zsh exec tmux new-session -A -s hooti-od'
+}
 alias sesh="tmux new-session -A -s rakhsh"
