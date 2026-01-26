@@ -425,6 +425,10 @@ set-window-option -g xterm-keys on
 # enable extended keys (CSI u / modifyOtherKeys) for Cmd+Enter, Shift+Enter, etc.
 set -s extended-keys on
 
+# Ctrl+L: clear screen preserving scrollback and current input
+# Saves input (C-a C-k), runs clear, restores input (C-y)
+bind -n C-l send-keys C-a C-k "clear" Enter C-y
+
 # replace C-b by C-a instead of using both prefixes
 set -gu prefix2
 unbind C-a
