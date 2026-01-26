@@ -426,8 +426,7 @@ set-window-option -g xterm-keys on
 set -s extended-keys on
 
 # Ctrl+L: clear screen preserving scrollback and current input
-# Saves input (C-a C-k), runs clear, restores input (C-y)
-bind -n C-l send-keys C-a C-k "clear" Enter C-y
+bind -n C-l send-keys C-a " " C-a C-k "clear" Enter C-y C-a C-d C-e
 
 # replace C-b by C-a instead of using both prefixes
 set -gu prefix2
