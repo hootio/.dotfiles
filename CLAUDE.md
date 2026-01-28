@@ -103,3 +103,17 @@ config ls-files                  # List all tracked files
 devmain <YUBIKEY_OTP>  # Connect to hooti.sb with persistent tmux session
 sesh                   # Local tmux session (rakhsh)
 ```
+
+## Notable Customizations
+
+### Ctrl+L in tmux
+Custom binding (`bind -n C-l`) runs `clear` to preserve scrollback while saving and restoring partial input via the kill ring. Uses a space prefix trick to ensure the kill ring is always updated, preventing stale yanks on empty lines. **Limitation:** Doesn't preserve multiline commands—only the last line is restored.
+
+### OSC 52 Clipboard
+Configured in `~/.config/nvim/lua/config/options.lua`. Enables yanking from Neovim on a remote server to the local macOS clipboard over SSH. Requires tmux's `set-clipboard on` (already set) and a terminal that supports OSC 52 (Ghostty does).
+
+### Devserver Note
+The `clear` command on devservers doesn't preserve scrollback. Add this function manually to `~/.zshrc` on each devserver:
+```bash
+clear() { printf '\n%.0s' {1..$(($LINES-1))}; printf '\033[H\033[2J' }
+```
