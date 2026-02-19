@@ -18,14 +18,20 @@ This is a **dotfiles repository** using the bare git repo pattern. The primary p
 .config/ghostty/config
 .config/karabiner/karabiner.json
 .config/nvim/.gitignore
-.config/nvim/.neoconf.json
+.config/nvim/CLAUDE.md
 .config/nvim/init.lua
-.config/nvim/lazyvim.json
+.config/nvim/lazy-lock.json
 .config/nvim/lua/config/autocmds.lua
 .config/nvim/lua/config/keymaps.lua
 .config/nvim/lua/config/lazy.lua
 .config/nvim/lua/config/options.lua
-.config/nvim/lua/plugins/example.lua
+.config/nvim/lua/plugins/colorscheme.lua
+.config/nvim/lua/plugins/completion.lua
+.config/nvim/lua/plugins/editor.lua
+.config/nvim/lua/plugins/lsp.lua
+.config/nvim/lua/plugins/meta.lua
+.config/nvim/lua/plugins/treesitter.lua
+.config/nvim/lua/plugins/ui.lua
 .config/nvim/stylua.toml
 .config/tmux/tmux.conf.local
 .config/weechat/irc.conf
@@ -34,6 +40,7 @@ This is a **dotfiles repository** using the bare git repo pattern. The primary p
 .zshenv
 .zshrc
 Brewfile
+CLAUDE.md
 README.md
 init.sh
 keychron_k11_max_ansi_rgb_knob.layout.json
@@ -57,7 +64,7 @@ config ls-files                  # List all tracked files
 
 1. **Terminal-first**: Tmux and Neovim are the core tools. The terminal emulator is just a viewport.
 
-2. **Minimal, understood config**: Every line should exist for a reason. No bloated frameworks. Currently using Oh My Tmux and LazyVim as scaffolding while learning—goal is to eventually own every line.
+2. **Minimal, understood config**: Every line should exist for a reason. No bloated frameworks. Using Oh My Tmux as scaffolding while learning—goal is to eventually own every line. Neovim config is hand-crafted with lazy.nvim as the plugin manager (no distro).
 
 3. **No symlinks**: Files live in their real locations via bare git repo. No stow, no dotbot.
 
@@ -86,8 +93,9 @@ config ls-files                  # List all tracked files
 - Plugins: tmux-resurrect, tmux-continuum
 
 ### Neovim (`~/.config/nvim/`)
-- LazyVim-based
-- Add plugins in `lua/plugins/` directory
+- Hand-crafted config using lazy.nvim as plugin manager (no LazyVim distro)
+- See `.config/nvim/CLAUDE.md` for detailed architecture
+- Devserver-aware: `vim.g.is_devserver` conditionally loads meta.nvim and disables nvim-lspconfig
 - Colorscheme: Catppuccin Mocha (in `lua/plugins/colorscheme.lua`)
 
 ## Setup Commands
