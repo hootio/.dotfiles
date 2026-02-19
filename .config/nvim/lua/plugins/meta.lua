@@ -10,7 +10,6 @@ return {
     config = function()
       -- Meta LSP servers
       require("meta.lsp")
-      vim.lsp.enable()
 
       -- Mercurial integration (replaces gitsigns on devserver)
       require("meta.hg").setup()
