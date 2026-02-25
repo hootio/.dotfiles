@@ -109,6 +109,7 @@ config ls-files                  # List all tracked files
 
 ```bash
 devmain <YUBIKEY_OTP>  # Connect to hooti.sb with persistent tmux session
+odmain <YUBIKEY_OTP>   # Connect to on-demand server (disables idle checks)
 sesh                   # Local tmux session (rakhsh)
 ```
 
