@@ -56,6 +56,7 @@ alias gp="git push"
 alias gs="git status"
 alias config="git --git-dir=$HOME/github/.dotfiles/ --work-tree=$HOME"
 compdef config=git
+alias glow='glow -ps ~/.config/glow/catppuccin-mocha.json'
 devmain() {
   if [ -z "$1" ]; then
     echo "Usage: devmain <YUBIKEY_OTP>"
