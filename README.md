@@ -32,7 +32,7 @@ Plugins: `tmux-resurrect` and `tmux-continuum` handle state persistence across r
 
 ### Neovim
 
-Neovim for everything. Currently running LazyVim as a starting point while building fluency. The goal is to eventually understand every line and strip it down to essentials.
+Neovim for everything. Hand-crafted config with lazy.nvim as the plugin manager — no distro, every line is intentional.
 
 ### Zsh
 
@@ -71,8 +71,8 @@ Productivity today matters. As keyboard fluency grows, mouse usage naturally fad
 Prefer understanding over convenience:
 
 - **Zsh**: No frameworks. Just raw config.
-- **Tmux**: Using Oh My Tmux as scaffolding while learning. Will minimize once fluent.
-- **Neovim**: LazyVim as a starting point. Gradual customization as understanding deepens.
+- **Tmux**: Pure config. No frameworks — every line is understood.
+- **Neovim**: Hand-crafted config with lazy.nvim as plugin manager (no distro).
 
 The goal is to eventually own every line of configuration.
 
