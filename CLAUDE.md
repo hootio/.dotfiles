@@ -33,7 +33,7 @@ This is a **dotfiles repository** using the bare git repo pattern. The primary p
 .config/nvim/lua/plugins/treesitter.lua
 .config/nvim/lua/plugins/ui.lua
 .config/nvim/stylua.toml
-.config/tmux/tmux.conf.local
+.config/tmux/tmux.conf
 .config/weechat/irc.conf
 .starship.toml
 .zprofile
@@ -64,7 +64,7 @@ config ls-files                  # List all tracked files
 
 1. **Terminal-first**: Tmux and Neovim are the core tools. The terminal emulator is just a viewport.
 
-2. **Minimal, understood config**: Every line should exist for a reason. No bloated frameworks. Using Oh My Tmux as scaffolding while learning—goal is to eventually own every line. Neovim config is hand-crafted with lazy.nvim as the plugin manager (no distro).
+2. **Minimal, understood config**: Every line should exist for a reason. No bloated frameworks. Neovim config is hand-crafted with lazy.nvim as the plugin manager (no distro). Tmux config is pure — no oh-my-tmux or other frameworks.
 
 3. **No symlinks**: Files live in their real locations via bare git repo. No stow, no dotbot.
 
@@ -85,12 +85,14 @@ config ls-files                  # List all tracked files
 - `cmd+enter` and `shift+enter` send newline
 - Shift+Cmd+Click to open links (bypasses tmux mouse capture)
 
-### Tmux (`~/.config/tmux/tmux.conf.local`)
-- Uses Oh My Tmux (base config at `~/.config/tmux/tmux.conf`)
-- Mouse enabled
-- Vi mode for copy
+### Tmux (`~/.config/tmux/tmux.conf`)
+- Pure config, no framework — single self-contained file (~160 lines)
+- Catppuccin Mocha palette defined as `%hidden` variables
+- Mouse enabled, OSC 52 clipboard (works local + over SSH)
+- Vi mode for copy, mouse drag copies to clipboard
 - Extended keys enabled for Ghostty: `terminal-features 'xterm-ghostty:clipboard:bracketed-paste:extkeys'`
-- Plugins: tmux-resurrect, tmux-continuum
+- Status bar: session (peach), indicators, battery%, uptime, date/time, user, hostname (teal)
+- Plugins via TPM: tmux-resurrect, tmux-continuum
 
 ### Neovim (`~/.config/nvim/`)
 - Hand-crafted config using lazy.nvim as plugin manager (no LazyVim distro)
