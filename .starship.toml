@@ -1,3 +1,5 @@
+palette = "catppuccin_mocha"
+
 format = """
 $directory\
 $fill\
@@ -11,38 +13,65 @@ $character\
 [username]
 show_always = true
 format = '[$user]($style)'
-style_user = 'italic strikethrough bright-green'
+style_user = 'italic strikethrough green'
 
 [hostname]
 ssh_only = false
 format = '[@$hostname:]($style)'
-style = 'italic dimmed bright-green'
+style = 'italic dimmed green'
 
 [directory]
 format = '[$path]($style)[$read_only]($read_only_style)'
 truncation_length = 0
 truncate_to_repo = false
-style = 'bold bright-cyan'
+style = 'teal'
 
 [fill]
 symbol = '.'
-style = 'dimmed white'
+style = 'dimmed overlay1'
 
 [time]
 disabled = false
 format = '[$time]($style) '
 time_format = '[%T][%b %d]'
-style = 'dimmed white'
+style = 'dimmed overlay1'
 
 [status]
 disabled = false
 format = '[\[$status\]]($style)'
 success_symbol = ' '
-style = 'bright-purple'
+style = 'pink'
 
 [cmd_duration]
 format = '[$duration]($style)'
 min_time = 0
 show_milliseconds = true
-style = 'bright-yellow'
+style = 'yellow'
 
+[palettes.catppuccin_mocha]
+rosewater = "#f5e0dc"
+flamingo = "#f2cdcd"
+pink = "#f5c2e7"
+mauve = "#cba6f7"
+red = "#f38ba8"
+maroon = "#eba0ac"
+peach = "#fab387"
+yellow = "#f9e2af"
+green = "#a6e3a1"
+teal = "#94e2d5"
+sky = "#89dceb"
+sapphire = "#74c7ec"
+blue = "#89b4fa"
+lavender = "#b4befe"
+text = "#cdd6f4"
+subtext1 = "#bac2de"
+subtext0 = "#a6adc8"
+overlay2 = "#9399b2"
+overlay1 = "#7f849c"
+overlay0 = "#6c7086"
+surface2 = "#585b70"
+surface1 = "#45475a"
+surface0 = "#313244"
+base = "#1e1e2e"
+mantle = "#181825"
+crust = "#11111b"
