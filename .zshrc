@@ -63,6 +63,7 @@ devmain() {
     return 1
   fi
   dev connect -n hooti.sb -y "$1" -- sh -c 'tmux new-session -A -s hooti-sb'
+  stty sane
 }
 odmain() {
   if [ -z "$1" ]; then
@@ -70,5 +71,6 @@ odmain() {
     return 1
   fi
   dev connect -t www_fbsource_configerator -y "$1" -- sh -c 'sudo ondemand-idle-checks disable; SHELL=/bin/zsh exec tmux new-session -A -s hooti-od'
+  stty sane
 }
 alias sesh="tmux new-session -A -s rakhsh"
