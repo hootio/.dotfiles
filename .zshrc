@@ -70,7 +70,7 @@ odmain() {
     echo "Usage: odmain <YUBIKEY_OTP>"
     return 1
   fi
-  dev connect -t www_fbsource_configerator -y "$1" -- sh -c 'sudo ondemand-idle-checks disable; SHELL=/bin/zsh exec tmux new-session -A -s hooti-od'
+  dev connect -t www_fbsource_configerator -y "$1" -- sh -c 'sudo ondemand-idle-checks disable; TERM=xterm-256color SHELL=/bin/zsh exec tmux new-session -A -s hooti-od'
   stty sane
 }
 alias sesh="tmux new-session -A -s rakhsh"
