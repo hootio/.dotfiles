@@ -56,6 +56,8 @@ alias gp="git push"
 alias gs="git status"
 alias config="git --git-dir=$HOME/github/.dotfiles/ --work-tree=$HOME"
 compdef config=git
+# glow only reads its config from ~/Library/Preferences on macOS and ignores
+# --config when rendering, so pass the theme and pager as flags instead
 alias glow='glow -ps ~/.config/glow/catppuccin-mocha.json'
 devmain() {
   if [ -z "$1" ]; then
