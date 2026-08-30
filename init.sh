@@ -72,6 +72,11 @@ brew bundle check --file $BREWFILE
 brew update
 brew upgrade
 
+# point global gitconfig at the tracked git config (identity stays untracked)
+if ! git config --global --get-all include.path 2>/dev/null | grep -qx '~/.config/git/config'; then
+  git config --global --add include.path '~/.config/git/config'
+fi
+
 # install default rust toolchain (rustc, cargo)
 rustup default stable
 

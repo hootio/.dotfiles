@@ -16,6 +16,7 @@ This is a **dotfiles repository** using the bare git repo pattern. The primary p
 
 ```
 .config/ghostty/config
+.config/git/config
 .config/karabiner/karabiner.json
 .config/nvim/.gitignore
 .config/nvim/CLAUDE.md
@@ -99,6 +100,15 @@ config ls-files                  # List all tracked files
 - See `.config/nvim/CLAUDE.md` for detailed architecture
 - Devserver-aware: `vim.g.is_devserver` conditionally loads meta.nvim and disables nvim-lspconfig
 - Colorscheme: Catppuccin Mocha (in `lua/plugins/colorscheme.lua`)
+
+### Git (`~/.config/git/config`)
+- Tracked config holds shared settings (delta pager, Catppuccin Mocha theme).
+- Identity (name/email) stays in `~/.gitconfig`, which is **untracked** so the
+  email is never published, and pulls the tracked file in via `[include]`.
+- Note: git only reads `~/.config/git/config` automatically when `~/.gitconfig`
+  does *not* exist, so the explicit `[include]` is required. `init.sh` adds it.
+- Diffs render through [delta](https://github.com/dandavison/delta): syntax
+  highlighting, line numbers, and character-level highlighting of changed spans.
 
 ## Setup Commands
 
