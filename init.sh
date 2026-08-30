@@ -23,7 +23,7 @@ config="git --git-dir=$REPO_DIR --work-tree=$HOME"
 cleanup() {
   echo "Cleaning up..."
   echo "Deleting $HOME/.gitconfig"
-  rm -f .gitconfig
+  rm -f "$HOME/.gitconfig"
   $config ls-tree -z --name-only -r HEAD | xargs -0 -I{} sh -c 'echo "Deleting $HOME/{}"; rm -f "$HOME/{}"'
   echo "Deleting $REPO_DIR"
   rm -rf $REPO_DIR
@@ -58,12 +58,11 @@ else
   $config pull || { echo "Failed to pull latest changes."; exit 1; }
 fi
 
-# install tmux config
-curl -fsSL https://raw.githubusercontent.com/gpakosz/.tmux/master/.tmux.conf > $HOME/.config/tmux/tmux.conf
-
 # install brew
 BREWFILE=$HOME/Brewfile
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+if ! command -v brew >/dev/null 2>&1; then
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+fi
 BREW_PREFIX=$(brew --prefix)
 eval "$($BREW_PREFIX/bin/brew shellenv)"
 
@@ -73,8 +72,8 @@ brew bundle check --file $BREWFILE
 brew update
 brew upgrade
 
-# install rustc and cargo
-rustup-init -y
+# install default rust toolchain (rustc, cargo)
+rustup default stable
 
 # reload zsh as login shell to run .zprofile
 exec zsh -l
