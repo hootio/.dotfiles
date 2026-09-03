@@ -36,6 +36,9 @@ This is a **dotfiles repository** using the bare git repo pattern. The primary p
 .config/nvim/stylua.toml
 .config/tmux/tmux.conf
 .config/weechat/irc.conf
+.tmux/agent-state.sh
+.tmux/pane-ack.sh
+.tmux/pane-state.sh
 .starship.toml
 .zprofile
 .zshenv
@@ -94,6 +97,8 @@ config ls-files                  # List all tracked files
 - Extended keys enabled for Ghostty: `terminal-features 'xterm-ghostty:clipboard:bracketed-paste:extkeys'`
 - Status bar: session (peach), indicators, battery%, uptime, date/time, user, hostname (teal)
 - Plugins via TPM: tmux-resurrect, tmux-continuum
+- Per-window state dot (`~/.tmux/*.sh`): red=failed, green=done/wants input, peach=running, gray=idle. State is pushed by zsh `preexec`/`precmd` (real exit codes, no timeouts), reduced per window by `agent-state.sh` run from `status-right`. Escape in a pane acknowledges and clears back to gray.
+- `default-shell` is hardcoded per platform (`/bin/zsh` on macOS, `/usr/bin/zsh` on devserver), not `$SHELL` — with `@continuum-restore` the server starts at boot with no login env and would fall back to `/bin/sh`
 
 ### Neovim (`~/.config/nvim/`)
 - Hand-crafted config using lazy.nvim as plugin manager (no LazyVim distro)
