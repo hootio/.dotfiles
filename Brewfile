@@ -1,4 +1,5 @@
 brew "asciiquarium"
+brew "awscli"
 brew "bat"
 brew "btop"
 brew "fd"
